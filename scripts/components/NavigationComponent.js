@@ -9,14 +9,12 @@ module.exports = React.createClass({
 	},
 	render: function() {
 		var currentPage = Backbone.history.getFragment();
-		console.log(currentPage === 'category/books');
+		// console.log(currentPage === 'category/books');
 
 		var links = [
 			<li key="home" className={currentPage === '' ? 'active' : ''}><a href="#">Home</a></li>,
-			<li key="books" className={currentPage === 'category/books' ? 'active' : ''}><a href="#category/books">Books</a></li>,
-			<li key="electronics" className={currentPage === 'category/electronics' ? 'active' : ''}><a href="#category/electronics">Electronics</a></li>,
-			<li key="clothing" className={currentPage === 'category/clothing' ? 'active' : ''}><a href="#category/clothing">Clothing</a></li>
-		];
+			<li key="products" className={currentPage === 'category/products' ? 'active' : ''}><a href="#category/products">Products</a></li>,
+			];
 
 		if(Parse.User.current()) {
 			links.push(<li key="add" className={currentPage === 'add' 	? 'active' : ''}><a href="#add">Add Product</a></li>)
@@ -43,3 +41,8 @@ module.exports = React.createClass({
 		this.props.router.navigate('', {trigger: true});
 	}
 })
+
+
+			// <li key="books" className={currentPage === 'category/books' ? 'active' : ''}><a href="#category/books">Books</a></li>,
+			// <li key="electronics" className={currentPage === 'category/electronics' ? 'active' : ''}><a href="#category/electronics">Electronics</a></li>,
+			// <li key="clothing" className={currentPage === 'category/clothing' ? 'active' : ''}><a href="#category/clothing">Clothing</a></li>
